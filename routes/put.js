@@ -1,14 +1,12 @@
 var express = require("express")
-var userData = require('../module/schema')
+var studentData = require('../module/schema')
 
 var router = express.Router()
 
 router.put('/put/:userId', async(req,res)=>{
     try{
-        var putData = await userData.findByIdAndUpdate(req.params.userId,req.body)
-        res.json({
-            success:"true"
-        })
+        var putData = await studentData.findByIdAndUpdate(req.params.userId,req.body)
+        res.json(true)
     }catch (e) {
         console.log(e)
     }

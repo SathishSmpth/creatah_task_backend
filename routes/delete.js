@@ -1,14 +1,12 @@
 var express = require('express')
-var userData = require("../module/schema")
+var studentData = require("../module/schema")
 
 var router = express.Router()
 
 router.delete('/delete/:userId', async (req,res)=>{
     try{
-        const Delete = await  userData.findByIdAndDelete(req.params.userId)
-        res.json({
-            success:"true"
-        })
+        const Delete = await studentData.findByIdAndDelete(req.params.userId)
+        res.json(true)
     }catch (e){
         console.log(e)
     }
